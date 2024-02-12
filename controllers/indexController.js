@@ -13,7 +13,10 @@ exports.homepage = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.currentUser = catchAsyncErrors(async (req, res, next) => {
-    const student = await Student.findById(req.id).populate("jobs").populate("internships").exec();
+    const student = await Student.findById(req.id)
+        .populate("jobs")
+        .populate("internships")
+        .exec();
     res.json({ student });
 });
 
